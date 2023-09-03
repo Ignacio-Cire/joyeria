@@ -27,7 +27,57 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// EFECTO MODAL 
+/**MODAL */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const productos = document.querySelectorAll(".producto"); // Selecciona todas las imágenes con la clase .producto
+
+    productos.forEach(function (producto) {
+        producto.addEventListener("click", function () {
+            const modal = document.getElementById("modal"); // Obtiene el modal
+            const modalImg = document.getElementById("modal_img"); // Obtiene la imagen dentro del modal
+
+            // Configura la imagen del modal para que sea la misma que se hizo clic
+            modalImg.src = producto.querySelector("img").src;
+
+            // Muestra el modal
+            modal.style.display = "block";
+        });
+    });
+
+    // Agrega un evento de clic al botón de cierre del modal
+    const modalBoton = document.getElementById("modal_boton");
+    modalBoton.addEventListener("click", function () {
+        const modal = document.getElementById("modal");
+        modal.style.display = "none"; // Oculta el modal al hacer clic en el botón de cierre
+    });
+});
+
+// Código para mostrar el modal cuando se hace clic en un producto
+document.addEventListener("DOMContentLoaded", function () {
+    const productos = document.querySelectorAll(".producto");
+
+    productos.forEach(function (producto) {
+        producto.addEventListener("click", function () {
+            const modal = document.getElementById("modal");
+            const modalImg = document.getElementById("modal_img");
+
+            modalImg.src = producto.querySelector("img").src;
+
+            // Muestra el modal y aplica un filtro de desenfoque al fondo del modal
+            modal.style.display = "block";
+            fondo.style.filter = "blur(5px)"; // Cambia el valor de desenfoque según tu preferencia
+        });
+    });
+
+    const modalBoton = document.getElementById("modal_boton");
+    modalBoton.addEventListener("click", function () {
+        const modal = document.getElementById("modal");
+        modal.style.display = "none";
+        fondo.style.filter = "none"; // Restablece el filtro de desenfoque cuando se cierra el modal
+    });
+});
+  
 
 
   
